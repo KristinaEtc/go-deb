@@ -1,30 +1,13 @@
 #!/usr/bin/make -f
 
-GO=$(shell which go)
-#GO = @go build
-GOINSTALL=$(GO) install
-GOBUILD=$(GO) build
-GOCLEAN=$(GO) clean
-GOGET=$(GO) get
-
-EXENAME = go-stomp-server
-#BUILDPATH ="/usr/local/$(EXENAME)"
-BUILDPATH = /
-
-logdir = "/var/log/${EXENAME}"
-bindir = "/usr/bin"
-demondir = "/etc/init"
-confdir = "/etc/${EXENAME}"
-
-CONF = "${EXENAME}.config"
-LOGCONF = "${EXENAME}.logconfig"
-DEMONF = "${EXENAME}.conf"
-
-GOFLAGS = "-o go-stomp-server \
-	  -ldflags \"-X github.com/KristinaEtc/slflog.configLogFile=${confdir}/${LOGCONF} \
-	  -X main.configFile=${confdir}/${CONF}\" "
+include path-to-projects.mk
 
 all: build
+
+go-stomp-server: build
+	sudo checkinstall -D --pkgversion=0.6.1 --pkgname=go-stomp-server \
+		--maintainer="Kristina Kovalevskaya isitiriss@gmail.com" --autodoinst=yes \
+		--spec=ABOUT.md --provides="" --pkgsource=go-stomp-server
 
 info:
 	@echo "Makefile for go-stomp-server. Installing..."
@@ -60,7 +43,7 @@ getlibs:
 
 build:
 	@echo -n "Start building a project... "
-	@${GOBUILD} $(shell echo $(GOFLAGS))"${EXENAME}.go"
+	@${GOBUILD} $(shell echo $(GOFLAGS))"${PATH_STOMP_SERVER}/${EXENAME}.go"
 	@echo "Done."
 
 getbin:
