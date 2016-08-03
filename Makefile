@@ -1,28 +1,5 @@
 #!/usr/bin/make -f
 
-GO=$(shell which go)
-#GO = @go build
-GOINSTALL=$(GO) install
-GOBUILD=$(GO) build
-GOCLEAN=$(GO) clean
-GOGET=$(GO) get
-
-EXENAME = go-stomp-server
-#BUILDPATH ="/usr/local/$(EXENAME)"
-BUILDPATH = /
-
-logdir = "/var/log/${EXENAME}"
-bindir = "/usr/bin"
-demondir = "/etc/init"
-confdir = "/etc/${EXENAME}"
-
-CONF = "${EXENAME}.config"
-LOGCONF = "${EXENAME}.logconfig"
-DEMONF = "${EXENAME}.conf"
-
-GOFLAGS = "-o go-stomp-server \
-	  -ldflags \"-X github.com/KristinaEtc/slflog.configLogFile=${confdir}/${LOGCONF} \
-	  -X main.configFile=${confdir}/${CONF}\" "
 
 all: build
 
@@ -48,13 +25,13 @@ configure:
 
 getlibs:
 	@echo -n "Getting dependencies... "
-	@if ( [ ! -d ${GOROOT}/src/github.com/KristinaEtc/slflog" ] || [ ! -d ${GOPATH}/src/github.com/KristinaEtc/slflog" ] ) ; then \
+	#@if ( [ ! -d ${GOROOT}/src/github.com/KristinaEtc/slflog" ] || [ ! -d ${GOPATH}/src/github.com/KristinaEtc/slflog" ] ) ; then \
 		${GOGET} github.com/KristinaEtc/slflog ; fi
-	@if ( [ ! -d ${GOROOT}/src/github.com/src/github.com/kardianos/osext" ] || [ ! -d ${GOPATH}/src/github.com/kardianos/osext" ] ) ; then \
+	#@if ( [ ! -d ${GOROOT}/src/github.com/src/github.com/kardianos/osext" ] || [ ! -d ${GOPATH}/src/github.com/kardianos/osext" ] ) ; then \
 		${GOGET} github.com/kardianos/osext ; fi
-	@if ( [ ! -d ${GOROOT}/src/github.com/KristinaEtc/auth" ] || [ ! -d ${GOPATH}/src/github.com/KristinaEtc/auth" ] ) ; then \
+	#@if ( [ ! -d ${GOROOT}/src/github.com/KristinaEtc/auth" ] || [ ! -d ${GOPATH}/src/github.com/KristinaEtc/auth" ] ) ; then \
 		${GOGET} github.com/KristinaEtc/auth ; fi
-	@if ( [ ! -d ${GOROOT}/src/github.com/ventu-io/slf" ] || [ ! -d ${GOPATH}/src/github.com/ventu-io/slf" ] ) ; then \
+	#@if ( [ ! -d ${GOROOT}/src/github.com/ventu-io/slf" ] || [ ! -d ${GOPATH}/src/github.com/ventu-io/slf" ] ) ; then \
 		${GOGET} github.com/ventu-io/slf ; fi
 	@echo "Done."
 
