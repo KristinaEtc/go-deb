@@ -1,0 +1,18 @@
+#!/bin/bash
+
+DEB_USER=stomp
+LOGDIR=/var/log/go-stomp-server
+CONFDIR=/etc/go-stomp-server
+set +e
+# Set currect mods
+ret=false
+getent passwd $DEB_USER >/dev/null 2>&1 && ret=true
+
+if $ret;
+then
+        chown -R "$DEB_USER:$DEB_USER" $LOGDIR;
+        chown -R $DEB_USER:$DEB_USER $CONFDIR;
+        chmod -R 0766 $LOGDIR;
+        chmod -R 0766 $CONFDIR
+fi
+
