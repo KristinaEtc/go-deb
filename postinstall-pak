@@ -12,7 +12,7 @@ if $ret;
 then
         chown -R "$DEB_USER:$DEB_USER" $LOGDIR;
         chown -R $DEB_USER:$DEB_USER $CONFDIR;
-        chmod -R 0766 $LOGDIR;
-        chmod -R 0766 $CONFDIR
+        chmod -R 0755 $LOGDIR;
+        chmod -R 0755 $CONFDIR
 fi
 
