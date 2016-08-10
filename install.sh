@@ -46,6 +46,7 @@ fi
 if [ $TEST_FILE_FL == true ];
 then
         cp $PATH_TO_SOURCE/$TEST_FILE $TESTDIR/
+fi
 echo "Done."
 
 #getlibs:

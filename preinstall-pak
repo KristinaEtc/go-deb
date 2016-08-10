@@ -1,6 +1,7 @@
 #!/bin/bash
 
 DEB_USER=stomp
+
 set +e
 # Creating a new user
 ret=false
