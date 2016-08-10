@@ -3,9 +3,9 @@ set -e
 
 # Set values, that are specific to each project
 export VERSION=0.6.1
-export PKGNAME=go-stomp-server
+export PKGNAME=go-stomp-nominatim
 export MAINTAINER="Kristina Kovalevskaya <isitiriss@gmail.com>"
-export EXENAME="go-stomp-server"
+export EXENAME="go-stomp-nominatim"
 export BUILDPATH="/"
 
 # Building specific values

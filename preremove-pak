@@ -1,6 +1,5 @@
 #!/bin/bash
 
-PKGNAME=go-stomp-server
-
+PKGNAME=go-stomp-nominatim
 #service $PKGNAME stop
 

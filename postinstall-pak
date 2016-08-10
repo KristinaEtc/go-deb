@@ -1,8 +1,9 @@
 #!/bin/bash
 
 DEB_USER=stomp
-LOGDIR=/var/log/go-stomp-server
-CONFDIR=/etc/go-stomp-server
+LOGDIR=/var/log/go-stomp-nominatim
+CONFDIR=/etc/go-stomp-nominatim
+
 set +e
 # Set currect mods
 ret=false
