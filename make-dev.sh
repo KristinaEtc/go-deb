@@ -10,8 +10,10 @@ export BUILDPATH="/"
 
 # Building specific values
 export CALLER_INFO=true
+export TEST_FILE_FL=false
+export DEMON_FL=true
 
-export DEMON_CONFIG=true
+# Deb user which will run prog
 export DEB_USER=stomp
 
 # In which project deploy
@@ -19,10 +21,12 @@ export LOGDIR="/var/log/$EXENAME"
 export BINDIR="/usr/bin"
 export DEMONDIR="/etc/init"
 export CONFDIR="/etc/$EXENAME"
+export TESTDIR="/usr/share/$EXENAME"
 
 # Names of config files
 export CONF="$EXENAME.config"
 export DEMON_CONF="$EXENAME.conf"
+export TEST_FILE="test.csv"
 #LOGCONF = "$EXENAME.logconfig"
 
 export PATH_TO_SOURCE="$(pwd)/.."

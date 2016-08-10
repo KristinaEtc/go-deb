@@ -15,9 +15,13 @@ GO_LDFLAGS=" -X github.com/KristinaEtc/config.configPath=${CONFDIR}/${CONF} \
 # Creation needed directories
 echo -n "Start building a tree... "
 if [ ! -d $BUILDPATH ] ; then mkdir $BUILDPATH ; fi
-if [ DEMON_CONFIG == true ];
+if [ $DEMON_FL == true ];
 then
         if [ ! -d $DEMONDIR ] ; then mkdir -p $DEMONDIR ; fi
+fi
+if [ $TEST_FILE_FL == true ];
+then
+        if [ ! -d $TESTDIR ] ; then mkdir -p $TESTDIR ; fi
 fi
 if [ ! -d $BINDIR ] ; then mkdir -p $BINDIR ; fi
 if [ ! -d $LOGDIR ] ; then mkdir -p $LOGDIR ; fi
@@ -35,7 +39,13 @@ mv $EXENAME $BINDIR/
 # Copying configs
 echo -n "Preparing config files... "
 cp $PATH_TO_SOURCE/$CONF $CONFDIR/$CONF
-cp  $DEMON_CONF $DEMONDIR
+if [ $DEMON_FL == true ];
+then
+        cp  $DEMON_CONF $DEMONDIR
+fi
+if [ $TEST_FILE_FL == true ];
+then
+        cp $PATH_TO_SOURCE/$TEST_FILE $TESTDIR/
 echo "Done."
 
 #getlibs:
