@@ -2,9 +2,6 @@
 set -e
 
 # Set values, that are specific to each project
-
-#TODO: change ../ to $(PATH_TO_SOURCE)
-export VERSION=$(cat ../VERSION)
 export PKGNAME=go-stomp-nominatim
 export MAINTAINER="Kristina Kovalevskaya <isitiriss@gmail.com>"
 export EXENAME="go-stomp-nominatim"
@@ -32,6 +29,8 @@ export TEST_FILE="test.csv"
 #LOGCONF = "$EXENAME.logconfig"
 
 export PATH_TO_SOURCE="$(pwd)/.."
+
+export VERSION="$(cat ${PATH_TO_SOURCE}/VERSION)"
 
 fakeroot checkinstall -D --pkgversion=$VERSION --pkgname=$PKGNAME \
       --maintainer="\"$MAINTAINER\""  --install=no --fstrans=yes --spec=ABOUT.md --provides="" \
