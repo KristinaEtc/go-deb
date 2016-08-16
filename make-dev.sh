@@ -2,7 +2,7 @@
 set -e
 
 # Set values, that are specific to each project
-export VERSION=0.6.1
+export VERSION=$(cat VERSION)
 export PKGNAME=go-stomp-nominatim
 export MAINTAINER="Kristina Kovalevskaya <isitiriss@gmail.com>"
 export EXENAME="go-stomp-nominatim"
