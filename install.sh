@@ -10,7 +10,8 @@ GOCLEAN="$GO clean"
 GOGET="$GO get"
 
 GO_LDFLAGS=" -X github.com/KristinaEtc/config.configPath=${CONFDIR}/${CONF} \
-	  -X github.com/KristinaEtc/config.CallerInfo=${CALLER_INFO} ${OTHER_FLAGS}"
+	  -X github.com/KristinaEtc/config.CallerInfo=${CALLER_INFO} ${OTHER_FLAGS} \
+          -X main.Version=$VERSION"
 
 # Creation needed directories
 echo -n "Start building a tree... "
