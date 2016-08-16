@@ -5,7 +5,7 @@ set +e
 # Go enviromnent
 GO="$(which go)"
 GOINSTALL="$GO install"
-GOBUILD="$GO build"
+GOBUILD="govvv build"
 GOCLEAN="$GO clean"
 GOGET="$GO get"
 
