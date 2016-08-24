@@ -2,15 +2,7 @@
 
 set +e
 
-# Go enviromnent
-GO="$(which go)"
-GOINSTALL="$GO install"
-GOBUILD="$GO build"
-GOCLEAN="$GO clean"
-GOGET="$GO get"
 
-GO_LDFLAGS=" -X github.com/KristinaEtc/config.configPath=${CONFDIR}/${CONF} \
-	  -X github.com/KristinaEtc/config.CallerInfo=${CALLER_INFO} ${OTHER_FLAGS}"
 
 # Creation needed directories
 echo -n "Start building a tree... "
@@ -34,7 +26,7 @@ $GOBUILD -o "${PKGNAME}" -ldflags "${GO_LDFLAGS}" "${PATH_TO_SOURCE}/${EXENAME}.
 echo "Done."
 
 # Moving executable file to bin directory
-mv $EXENAME $BINDIR/
+cp $EXENAME $BINDIR/
 
 # Copying configs
 echo -n "Preparing config files... "

@@ -31,6 +31,28 @@ export TEST_FILE="test.csv"
 
 export PATH_TO_SOURCE="$(pwd)/.."
 
+# Go enviromnent
+GO="$(which go)"
+GOINSTALL="$GO install"
+GOBUILD="$GO build"
+GOCLEAN="$GO clean"
+GOGET="$GO get"
+
+GO_LDFLAGS=" -X github.com/KristinaEtc/config.configPath=${CONFDIR}/${CONF} \
+	  -X github.com/KristinaEtc/config.CallerInfo=${CALLER_INFO} ${OTHER_FLAGS}"
+
+CURR_PWD=$(pwd)
+
+cd ${PATH_TO_SOURCE}
+
+# Moving executable file to bin directory
+echo -n "Start building an executable... "
+$GOBUILD -o "${PKGNAME}" -ldflags "${GO_LDFLAGS}" "${PATH_TO_SOURCE}/${EXENAME}.go"
+echo "Done."
+
+cp ${PKGNAME} ${CURR_PWD}
+cd ${CURR_PWD}
+
 fakeroot checkinstall -D --pkgversion=$VERSION --pkgname=$PKGNAME \
       --maintainer="\"$MAINTAINER\""  --install=no --fstrans=yes --spec=ABOUT.md --provides="" \
       --pkgsource=$EXENAME ./install.sh
