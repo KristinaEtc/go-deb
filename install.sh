@@ -18,11 +18,6 @@ if [ ! -d $LOGDIR ] ; then mkdir -p $LOGDIR ; fi
 if [ ! -d $CONFDIR ] ; then mkdir -p $CONFDIR ; fi
 echo "Done."
 
-# Building executable file
-echo -n "Start building an executable... "
-$GOBUILD -o "${PKGNAME}" -ldflags "${GO_LDFLAGS}" "${PATH_TO_SOURCE}/${EXENAME}.go"
-echo "Done."
-
 # Moving executable file to bin directory
 cp $EXENAME $BINDIR/
 

@@ -30,11 +30,10 @@ export TEST_FILE="test.csv"
 
 export PATH_TO_SOURCE="$(pwd)/.."
 
-<<<<<<< HEAD
 # Go enviromnent
 GO="$(which go)"
 GOINSTALL="$GO install"
-GOBUILD="$GO build"
+GOBUILD="govvv build"
 GOCLEAN="$GO clean"
 GOGET="$GO get"
 
