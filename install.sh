@@ -2,8 +2,6 @@
 
 set +e
 
-
-
 # Creation needed directories
 echo -n "Start building a tree... "
 if [ ! -d $BUILDPATH ] ; then mkdir $BUILDPATH ; fi
