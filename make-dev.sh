@@ -23,7 +23,7 @@ export CONFDIR="/etc/$EXENAME"
 export TESTDIR="/usr/share/$EXENAME"
 
 # Names of config files
-export CONF="$EXENAME.config"
+export CONF="$EXENAME-deb.config"
 export DEMON_CONF="$EXENAME.conf"
 export TEST_FILE="test.csv"
 #LOGCONF = "$EXENAME.logconfig"
