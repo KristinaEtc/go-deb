@@ -20,10 +20,11 @@ echo "Done."
 
 # Moving executable file to bin directory
 cp $EXENAME $BINDIR/
+chmod -R 0755 $BINDIR/$EXENAME
 
 # Copying configs
 echo -n "Preparing config files... "
-cp $PATH_TO_SOURCE/$CONF $CONFDIR/$EXENAME.config
+cp $PATH_TO_SOURCE/$CONF_SOURCE  $CONFDIR/$CONF
 if [ $DEMON_FL == true ];
 then
         cp  $DEMON_CONF $DEMONDIR
