@@ -23,7 +23,7 @@ cp $EXENAME $BINDIR/
 
 # Copying configs
 echo -n "Preparing config files... "
-cp $PATH_TO_SOURCE/$CONF $CONFDIR/$EXENAME.conf
+cp $PATH_TO_SOURCE/$CONF $CONFDIR/$EXENAME.config
 if [ $DEMON_FL == true ];
 then
         cp  $DEMON_CONF $DEMONDIR
