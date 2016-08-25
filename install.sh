@@ -20,7 +20,7 @@ echo "Done."
 
 # Moving executable file to bin directory
 cp $EXENAME $BINDIR/
-chmod -R 0755 $BINDIR/$EXENAME
+chmod 755 $BINDIR/$EXENAME
 
 # Copying configs
 echo -n "Preparing config files... "
