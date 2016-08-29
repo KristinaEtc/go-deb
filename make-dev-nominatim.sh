@@ -35,7 +35,7 @@ export PATH_TO_SOURCE="$(pwd)/.."
 # Go enviromnent
 GO="$(which go)"
 GOINSTALL="$GO install"
-GOBUILD="govvv build"
+GOBUILD="${GOPATH}/bin/govvv build"
 GOCLEAN="$GO clean"
 GOGET="$GO get"
 
