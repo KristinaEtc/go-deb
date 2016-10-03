@@ -12,8 +12,9 @@ getent passwd $DEB_USER >/dev/null 2>&1 && ret=true
 if $ret;
 then
         chown -R "$DEB_USER:$DEB_USER" $LOGDIR;
-        chown -R $DEB_USER:$DEB_USER $CONFDIR;
-        chmod -R 0755 $LOGDIR;
-        chmod -R 0755 $CONFDIR
+        chown -R "$DEB_USER:$DEB_USER" $CONFDIR;
+        chmod -R 0755 "$LOGDIR";
+        chmod -R u+rX "$CONFDIR"
+
 fi
 
