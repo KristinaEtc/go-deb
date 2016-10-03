@@ -17,7 +17,7 @@ fi
 
 if [ ! -d $BINDIR ] ; then mkdir -p $BINDIR ; fi
 if [ ! -d $LOGDIR ] ; then mkdir -p $LOGDIR ; fi
-touch $LOGDIR/tt.tt 
+echo 'log directory' > $LOGDIR/$EXENAME 
 if [ ! -d $CONFDIR ] ; then mkdir -p $CONFDIR ; fi
 echo "Done."
 
