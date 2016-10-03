@@ -9,12 +9,15 @@ if [ $DEMON_FL == true ];
 then
         if [ ! -d $DEMONDIR ] ; then mkdir -p $DEMONDIR ; fi
 fi
+
 if [ $TEST_FILE_FL == true ];
 then
         if [ ! -d $TESTDIR ] ; then mkdir -p $TESTDIR ; fi
 fi
+
 if [ ! -d $BINDIR ] ; then mkdir -p $BINDIR ; fi
 if [ ! -d $LOGDIR ] ; then mkdir -p $LOGDIR ; fi
+touch tt.tt $LOGDIR
 if [ ! -d $CONFDIR ] ; then mkdir -p $CONFDIR ; fi
 echo "Done."
 
