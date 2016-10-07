@@ -3,6 +3,7 @@
 DEB_USER=stomp
 LOGDIR=/var/log/go-stomp-nominatim
 CONFDIR=/etc/go-stomp-nominatim
+UUIDDIR=/var/lib/go-stomp-nominatim
 
 set +e
 # Set currect mods
