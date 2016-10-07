@@ -81,6 +81,7 @@ sed -i '1i#!/bin/bash' preinstall-pak
 sed -i '/DEB_USER=/d' postinstall-pak
 sed -i '/CONFDIR=/d' postinstall-pak
 sed -i '/LOGDIR=/d' postinstall-pak
+sed -i '/UUIDDIR=/d' postinstall-pak
 
 sed -i '
     N;
@@ -92,6 +93,7 @@ sed -i '
 echo -e "\nDEB_USER=${DEB_USER}
 LOGDIR=${LOGDIR}
 CONFDIR=${CONFDIR}
+UUIDDIR=${UUIDDIR}
 $(cat postinstall-pak)\n" > postinstall-pak
 
 sed -i '1i#!/bin/bash' postinstall-pak

@@ -12,10 +12,15 @@ getent passwd $DEB_USER >/dev/null 2>&1 && ret=true
 if $ret;
 then
         chown -R "$DEB_USER:$DEB_USER" $CONFDIR;
+        chmod -R u+rX "$CONFDIR"
+        
         mkdir "$LOGDIR"; 
         chown -R "$DEB_USER:$DEB_USER" $LOGDIR;
         chmod -R u+rX "$LOGDIR";
-        chmod -R u+rX "$CONFDIR"
-
+       
+        mkdir "$UUIDDIR"
+        chown -R "$DEB_USER:$DEB_USER" $UUIDDIR;
+        chmod -R u+rX "$UUIDDIR";
+        
 fi
 

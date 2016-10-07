@@ -21,6 +21,7 @@ export BINDIR="/usr/bin"
 export DEMONDIR="/etc/init"
 export CONFDIR="/etc/$EXENAME"
 export TESTDIR="/usr/share/$EXENAME"
+export UUIDDIR="/var/lib/$EXENAME"
 
 # Names of config files
 export CONF_SOURCE="$EXENAME-deb.config"
