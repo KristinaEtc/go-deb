@@ -45,11 +45,15 @@ GO_LDFLAGS=" -X github.com/KristinaEtc/config.configPath=${CONFDIR}/${CONF} \
 
 CURR_PWD=$(pwd)
 
+BUILD_FILES="go-stomp-nominatim.go geocode.go monitoring.go"
+
 cd ${PATH_TO_SOURCE}
 
 # Moving executable file to bin directory
 echo -n "Start building an executable... "
-$GOBUILD -o "${PKGNAME}" -ldflags "${GO_LDFLAGS}" "${PATH_TO_SOURCE}/${EXENAME}.go"
+
+#cat $GOBUILD -o "${PKGNAME}" -ldflags "${GO_LDFLAGS}" ${BUILD_FILES}
+$GOBUILD -o "${PKGNAME}" -ldflags "${GO_LDFLAGS}" ${BUILD_FILES}
 echo "Done."
 
 cp ${PKGNAME} ${CURR_PWD}
