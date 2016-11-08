@@ -1,0 +1,35 @@
+# location: /etc/systemd/system/
+[Unit]
+Description = Stomp-Nominatim demon
+After       = syslog.target
+
+[Service]
+# make sure the shell script is executable (chmod +x $1)
+# and it begins with a shebang (#!/bin/bash)
+ExecStart   = /etc/go-stomp-nominatim/go-stomp-nominatim.sh
+
+# In my example script I start a node server,
+# So tell the serive how to kill it / reload.
+ExecStop    = kill -INT `cat /var/run/go-stomp-nominatim.pid`
+ExecReload  = kill -TERM `cat /var/run/go-stomp-nominatim.pid`
+
+# In case if it gets stopped, restart it immediately
+Restart     = always
+
+
+# With notify Type, service manager will be notified
+# when the starting up has finished
+Type        = notify
+
+# Since Type is notify, notify only service updates
+# sent from the main process of the service
+NotifyAccess= main
+
+# systemd gets to read the PID of daemon's main process
+# see ExecStop and ExecReload
+PIDFile     = /var/run/go-stomp-nominatim.pid
+
+[Install]
+# multi-user.target corresponds to run level 3
+# roughtly meaning wanted by system start
+WantedBy = multi-user.target
