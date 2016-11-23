@@ -68,6 +68,6 @@ fakeroot checkinstall -y -D --pkgversion=$VERSION --pkgname=$PKGNAME \
 # Deleting unnecessary files
 rm -r backup-*tgz
 
-RETVAL=$?
-[ $RETVAL -eq 0 ] && echo Success
-[ $RETVAL -ne 0 ] && echo Failure
+#RETVAL=$?
+#[ $RETVAL -eq 0 ] && echo Success
+#[ $RETVAL -ne 0 ] && echo Failure
