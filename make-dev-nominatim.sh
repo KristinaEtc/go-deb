@@ -61,7 +61,7 @@ cd ${CURR_PWD}
 
 export VERSION="$(cat ${PATH_TO_SOURCE}/VERSION)"
 
-fakeroot checkinstall -D --pkgversion=$VERSION --pkgname=$PKGNAME \
+fakeroot checkinstall -y -D --pkgversion=$VERSION --pkgname=$PKGNAME \
       --maintainer="\"$MAINTAINER\""  --install=no --fstrans=yes --spec=ABOUT.md --provides="" \
       --pkgsource=$EXENAME ./install.sh
 
