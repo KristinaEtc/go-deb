@@ -59,7 +59,9 @@ echo "Done."
 cp ${PKGNAME} ${CURR_PWD}
 cd ${CURR_PWD}
 
-export VERSION="$(cat ${PATH_TO_SOURCE}/VERSION)"
+cd "${PATH_TO_SOURCE}"
+export VERSION="$(cat ${PATH_TO_SOURCE}/VERSION)-$(git describe --tags --dirty --always)-$(git symbolic-ref -q --short HEAD)"
+cd -
 
 fakeroot checkinstall -y -D --pkgversion=$VERSION --pkgname=$PKGNAME \
       --maintainer="\"$MAINTAINER\""  --install=no --fstrans=yes --spec=ABOUT.md --provides="" \
