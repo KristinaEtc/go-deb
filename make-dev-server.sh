@@ -59,13 +59,13 @@ cd "${PATH_TO_SOURCE}"
 export VERSION="$(cat ${PATH_TO_SOURCE}/VERSION)-$(git describe --tags --dirty --always)-$(git symbolic-ref -q --short HEAD)"
 cd -
 
-fakeroot checkinstall -D --pkgversion=$VERSION --pkgname=$PKGNAME \
+fakeroot checkinstall -y -D --pkgversion=$VERSION --pkgname=$PKGNAME \
       --maintainer="\"$MAINTAINER\""  --install=no --fstrans=yes --spec=ABOUT.md --provides="" \
       --pkgsource=$EXENAME ./install.sh
 
 # Deleting unnecessary files
 rm -r backup-*tgz
 
-RETVAL=$?
-[ $RETVAL -eq 0 ] && echo Success
-[ $RETVAL -ne 0 ] && echo Failure
+#RETVAL=$?
+#[ $RETVAL -eq 0 ] && echo Success
+#[ $RETVAL -ne 0 ] && echo Failure
